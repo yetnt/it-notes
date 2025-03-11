@@ -18,3 +18,12 @@
 -   -   **the whole system** (the system clock is increased)
 
 Running components faster than intended can cause them to wear out or fail or become unstable. Most overclocking techniques come with more power consumed and more heat generated.
+
+## Speed vs Throughput
+
+A CPU is measured in GHz and RAM in MHz.
+This stuff needa be conneced via busses to transfer data.
+
+The **speed** of a bus is measured in Mbps or Gbps, often this rate refers to the maximum speed of the bus and due to latency and other factors, the actual speed or **throughput** of data may be reduced
+
+_Speed is referred to as **bandwidth**_ and is the theoretical speed of data, whereas throughput is the actual speed of data.
