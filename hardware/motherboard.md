@@ -16,3 +16,5 @@
 -   This is achieved either:
 -   -   **per component** (The CPU operates faster than the system clock)
 -   -   **the whole system** (the system clock is increased)
+
+Running components faster than intended can cause them to wear out or fail or become unstable. Most overclocking techniques come with more power consumed and more heat generated.
