@@ -27,3 +27,45 @@ This stuff needa be conneced via busses to transfer data.
 The **speed** of a bus is measured in Mbps or Gbps, often this rate refers to the maximum speed of the bus and due to latency and other factors, the actual speed or **throughput** of data may be reduced
 
 _Speed is referred to as **bandwidth**_ and is the theoretical speed of data, whereas throughput is the actual speed of data.
+
+## FSB (Front Side Bus)
+
+The FSB (or Internal Bus) **was** a parallel bus that connected all components on the motherboard. Sice then point to point serial connections replaced FSB.
+
+```mermaid
+---
+title: computer system bus (look on page 30, this graph rendered weirdly.)
+---
+graph TD;
+
+    subgraph SB[System Bus]
+        C[Control Bus]
+        A[Address Bus]
+        D[Data Bus]
+    end
+
+    CPU[CPU]
+    M[Memory]
+    IO[Input and Output]
+
+    CPU <--> C
+    CPU --> A
+    CPU <--> D
+
+    M <--> C
+    A --> M
+    M <--> D
+
+    IO <--> C
+    IO --> A
+    IO <--> D
+```
+
+### Data Bus
+
+-   Transers the actual instruction or data between the CPU and RAM.
+-   The number of bits that the bus can deliver to the CPU dictates the size of the registers on the CPU
+
+### Address Bus
+
+-   Transfers the physical adress of the instruction or data between the CPU and RAM.
