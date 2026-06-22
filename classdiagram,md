@@ -1,0 +1,30 @@
+```mermaid
+classDiagram
+class Circle {
+    -radius: number
+    +constructor(radius: number)
+    +getRadius() number
+    +setRadius(radius: number) number
+    +toString() string
+    +area(): number
+    +perimeter(): number
+}
+```
+
+```mermaid
+classDiagram
+class Student {
+    -firstName: string
+    -surname: string
+    -IDNo: string
+    +constructor(name: string, surname: string, ID: string)
+    +setFirstName(name: string) string
+    +setSurname(surname:string) string
+    +getFirstName() string
+    +getSurname() string
+    +getIDNo() string
+    +getInitals() string
+    +toString() string
+
+}
+```

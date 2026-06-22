@@ -89,8 +89,39 @@ flowchart LR
     t...N --> t3  --> processor3;
     t...N --> t4 --> processor4;
 ```
-
 **_(CPU doesn't work as showuin in the above diagram, this is just for demonstration purposes, see page 23.)_**
+
+More so like below where anything labelled p is a CPU
+instruction.
+
+```mermaid
+flowchart LR
+    problem
+    
+    subgraph t...N 
+        p1
+        p2
+        p3
+        p4
+    end
+    subgraph t2 
+        pa
+        pb
+        pc
+        pd
+    end
+    subgraph t1
+        pA
+        pB
+        pC
+        pD
+    end
+    
+    problem --> p1 --> pa --> pA --> processor1
+    problem --> p2 --> pb --> pB --> processor2
+    problem --> p3 --> pc --> pC --> processor3
+    problem --> p4 --> pd --> pD --> processor4
+```
 
 #### Hyperthreading
 
@@ -106,7 +137,12 @@ title: Single thread CPU
 ---
 graph TD;
     subgraph Thread
-        B[Registers]
+        subgraph Logical Processor 1
+            B[Registers]
+        end
+        subgraph Logical Processor 2
+            C[Registers]
+        end
         C[Registers]
         ALU's --> Cache;
     end
@@ -120,19 +156,27 @@ title: Hyperthreaded CPU
 ---
 graph TD;
     subgraph Thread1
-        B[Registers]
+        subgraph Physical Processor 1
+            B[Registers]
+        end
         C[ALU's]
         D[Caches]
     end
 
     subgraph Thread2
-        F[Registers]
+        subgraph Physical Processor 2
+            F[Registers]
+        end
         G[ALU's]
         H[Caches]
     end
+    
+    S[System Bus]
 
-    Thread1 <==>|System Bus| Main-Memory
-    Thread2 <==>|System Bus| Main-Memory
+%%    Thread1 <==>|System Bus| Main-Memory
+%%    Thread2 <==>|System Bus| Main-Memory
+Thread1 <==> S <==> Main-Memory
+Thread2 <==> S <==> Main-Memory
 ```
 
 -   _In an OS, a hyperthreaded CPU appears like two **logical CPUs** where in fact there is only one physical CPU with two sets of registers_
@@ -254,3 +298,7 @@ The CPU will check for data on L1 first, then L2, then L3 and finally the slower
 <br>
 
 **_`Cache`_** - stores data so that future requests for that data can beserved faster.
+
+A **Cache hit** is when the requested data is found within the cache
+and a **Cache miss** is when it cannot be found and needs to 
+access Memory
